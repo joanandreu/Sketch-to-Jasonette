@@ -1,0 +1,16 @@
+{
+  "name": "sketch-to-jasonette",
+  "version": "1.0.0",
+  "description": "A tool to convert Sketch to Jasonette App.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "“ayshiff” <“remi.d45@gmail.com”>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.11.0",
+    "ramda": "^0.26.1",
+    "svgson": "^2.1.1"
+  }
+}
