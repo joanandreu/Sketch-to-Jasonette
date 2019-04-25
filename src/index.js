@@ -6,6 +6,7 @@ const { prepData } = require("./input");
 const { propEq, filter } = require("ramda");
 const { processElement } = require("./process");
 const util = require("util");
+const pjson = require('../package.json');
 
 const jasonettetemplate = require("./utils/jasonette.template.json");
 
@@ -51,6 +52,19 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
   });
 
   svgson(preppedData, {}, async function(result) {
+
+    console.log(`                                                                                
+    _____ _       _       _       _              __                     _   _         
+   |   __| |_ ___| |_ ___| |_ ___| |_ ___ ___ __|  |___ ___ ___ ___ ___| |_| |_ ___   
+   |__   | '_| -_|  _|  _|   |___|  _| . |___|  |  | .'|_ -| . |   | -_|  _|  _| -_|  
+   |_____|_,_|___|_| |___|_|_|   |_| |___|   |_____|__,|___|___|_|_|___|_| |_| |___|  
+                                                                                    `)
+
+    console.log("Version : ", pjson.version);
+    console.log("Your json file is in the output folder");
+
+    console.log("Feel free to contribute to the project on Github: https://github.com/BREDFactory/Sketch-to-Jasonette");
+
     const nodes = processElement(result);
 
     const MOBILE_WIDTH = result.attrs.width;
@@ -71,9 +85,13 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
     jasonettetemplate["$jason"].body = nodes.childs[0];
     jasonettetemplate["$jason"].body.style = HEAD_STYLE;
 
-    // Remove double brackets array from sections
+    // Remove double brackets array from first section
     jasonettetemplate["$jason"].body.sections =
       jasonettetemplate["$jason"].body.sections[0];
+
+    // Add items inside section part
+    jasonettetemplate["$jason"].body.sections = 
+      [{ "items": jasonettetemplate["$jason"].body.sections }]
 
     const mainElementChilds = mainElement.childs[0].childs;
 

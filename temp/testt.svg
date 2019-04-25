@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="771px" viewBox="0 0 320 771" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Mobile</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="320" height="72"></rect>
+        <rect id="path-2" x="0" y="699" width="320" height="72"></rect>
+        <rect id="path-3" x="0" y="489" width="320" height="72"></rect>
+        <rect id="path-4" x="0" y="274" width="320" height="72"></rect>
+        <rect id="path-5" x="18" y="95" width="110" height="150"></rect>
+        <rect id="path-6" x="160" y="93" width="123" height="150"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile">
+            <g id="Rectangle">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="319" height="71"></rect>
+            </g>
+            <text id="Header" font-family="Helvetica-BoldOblique, Helvetica" font-size="36" font-style="italic" font-weight="bold" fill="#000000">
+                <tspan x="99" y="46">Header</tspan>
+                <tspan x="221.0625" y="46" font-size="48"></tspan>
+            </text>
+            <g id="Rectangle">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="699.5" width="319" height="71"></rect>
+            </g>
+            <text id="Footer" font-family="Helvetica-BoldOblique, Helvetica" font-size="36" font-style="italic" font-weight="bold" fill="#000000">
+                <tspan x="99" y="734">Footer</tspan>
+                <tspan x="210.990234" y="734" font-size="48"></tspan>
+            </text>
+            <g id="Rectangle">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="489.5" width="319" height="71"></rect>
+            </g>
+            <text id="Content2" font-family="Helvetica-BoldOblique, Helvetica" font-size="36" font-style="italic" font-weight="bold" fill="#000000">
+                <tspan x="99" y="535">Content2</tspan>
+                <tspan x="254.988281" y="535" font-size="48"></tspan>
+            </text>
+            <g id="Rectangle">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="274.5" width="319" height="71"></rect>
+            </g>
+            <text id="Content1" font-family="Helvetica-BoldOblique, Helvetica" font-size="36" font-style="italic" font-weight="bold" fill="#000000">
+                <tspan x="99" y="320">Content1</tspan>
+                <tspan x="254.988281" y="320" font-size="48"></tspan>
+            </text>
+            <g id="Rectangle-2">
+                <use fill="#A53838" fill-rule="evenodd" xlink:href="#path-5"></use>
+                <rect stroke="#979797" stroke-width="1" x="18.5" y="95.5" width="109" height="149"></rect>
+            </g>
+            <g id="Rectangle-3">
+                <use fill="#2C1C1C" fill-rule="evenodd" xlink:href="#path-6"></use>
+                <rect stroke="#979797" stroke-width="1" x="160.5" y="93.5" width="122" height="149"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

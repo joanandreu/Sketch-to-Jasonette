@@ -109,20 +109,16 @@ const processG = (node, parentAttrs = {}) => {
     };
   }
 
-  if (
-    type === "items" &&
-    node.childs[0].name === "g" &&
-    node.childs[0].childs[0].name === "g"
-  ) {
-    return processChildren(node, parentAttrs);
+  if (type === "items") {
+    return processChildren(node, parentAttrs)
+  } else {
+    return {
+      id: node.attrs.id,
+      [type]: processChildren(node, parentAttrs),
+      childs: processChildren(node, parentAttrs),
+      styles
+    };
   }
-
-  return {
-    id: node.attrs.id,
-    [type]: processChildren(node, parentAttrs),
-    childs: processChildren(node, parentAttrs),
-    styles
-  };
 };
 
 const processSVG = (node, parentAttrs) => {

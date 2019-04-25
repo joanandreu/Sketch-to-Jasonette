@@ -7,7 +7,6 @@ const prepData = ({ data, tempDir, inputFile }) => {
 
   const positions = data.replace(/\sy=\"[^\"]+/g, function(d) {
     let onlyId = d.replace(/^\sid\=\"/, "").replace(/[^\_0-9a-zA-Z]/g, "");
-    // console.log(onlyId);
     if (onlyId.match(/^[0-9]+/)) {
       onlyId = "_" + onlyId;
     }
@@ -26,7 +25,6 @@ const prepData = ({ data, tempDir, inputFile }) => {
 
   const newData = data.replace(/\sid=\"[^\"]+/g, function(d) {
     let onlyId = d.replace(/^\sid\=\"/, "").replace(/[^\_0-9a-zA-Z]/g, "");
-    // console.log(onlyId);
     if (onlyId.match(/^[0-9]+/)) {
       onlyId = "_" + onlyId;
     }

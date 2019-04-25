@@ -1,6 +1,6 @@
 {
   "name": "sketch-to-jasonette",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A tool to convert Sketch to Jasonette App.",
   "main": "index.js",
   "scripts": {
