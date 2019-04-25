@@ -21,11 +21,6 @@
                 <tspan x="99" y="46">Header</tspan>
                 <tspan x="221.0625" y="46" font-size="48"></tspan>
             </text>
-            <g id="Rectangle">
-                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
-                <rect stroke="#979797" stroke-width="1" x="0.5" y="699.5" width="319" height="71"></rect>
-            </g>
-            </text>
             <g id="Rectangle-2">
                 <use fill="#A53838" fill-rule="evenodd" xlink:href="#path-5"></use>
                 <rect stroke="#979797" stroke-width="1" x="18.5" y="95.5" width="109" height="149"></rect>
@@ -33,6 +28,10 @@
             <g id="Rectangle-3">
                 <use fill="#2C1C1C" fill-rule="evenodd" xlink:href="#path-6"></use>
                 <rect stroke="#979797" stroke-width="1" x="160.5" y="93.5" width="122" height="149"></rect>
+            </g>
+            <g id="Rectangle">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="699.5" width="319" height="71"></rect>
             </g>
             <text id="Footer" font-family="Helvetica-BoldOblique, Helvetica" font-size="36" font-style="italic" font-weight="bold" fill="#000000">
                 <tspan x="99" y="734">Footer</tspan>
@@ -53,6 +52,7 @@
             <text id="Content1" font-family="Helvetica-BoldOblique, Helvetica" font-size="36" font-style="italic" font-weight="bold" fill="#000000">
                 <tspan x="99" y="320">Content1</tspan>
                 <tspan x="254.988281" y="320" font-size="48"></tspan>
+            </text>
         </g>
     </g>
 </svg>
