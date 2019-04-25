@@ -63,10 +63,10 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
   svgson(preppedData, {}, async function(result) {
 
     console.log(`                                                                                
-    _____ _       _       _       _              __                     _   _         
-   |   __| |_ ___| |_ ___| |_ ___| |_ ___ ___ __|  |___ ___ ___ ___ ___| |_| |_ ___   
-   |__   | '_| -_|  _|  _|   |___|  _| . |___|  |  | .'|_ -| . |   | -_|  _|  _| -_|  
-   |_____|_,_|___|_| |___|_|_|   |_| |___|   |_____|__,|___|___|_|_|___|_| |_| |___|  
+    _____   _           _           _         _                  __                                 _     _           
+   |   __| | |_   ___| | |_   ___| | |_  ___ | |_   ___  ___  __|  | |___   ___   ___   ___   ___| | |_  | |_   ___   
+   |__   | | '_| | -_| |  _| |  _| |   | ___ |  _| | . | ___ |  |  | | .'| |_ -| | . | |   | | -_| |  _| |  _| | -_|  
+   |_____| |_,_| |___| |_| | |___| |_|_|     |_| | |___|     |_____| |__,| |___| |___| |_|_| |___| |_|   |_|   |___|  
                                                                                     `)
 
     console.log("Version : ", pjson.version);
@@ -103,6 +103,10 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
       [{ "items": jasonettetemplate["$jason"].body.sections }]
     
     let rr = [] 
+
+    /**
+     * Process the label tags
+     */
     
     await jasonettetemplate["$jason"].body.sections[0].items.map(element => {
       let width = parseInt(element.style.width) || 0
@@ -124,7 +128,6 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
       } 
     }
 
-        
     jasonettetemplate["$jason"].body.sections[0].items = 
       await jasonettetemplate["$jason"].body.sections[0].items.filter(element => {
         let test = containsObject(element.id, rr)
@@ -135,11 +138,40 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
         return false
       })
 
+    /**
+     * Process the spaces
+     */
+
+    jasonettetemplate["$jason"].body.sections[0].items.sort((a, b) => {
+      return parseInt(a.style.y) - parseInt(b.style.y);
+    });
+
+    jasonettetemplate["$jason"].body.sections[0].items = 
+      jasonettetemplate["$jason"].body.sections[0].items.reduce((arr, b) => {
+        let element = { 
+          id: 'empty-space',
+          type: 'space',
+          style:
+           { background: 'transparent',
+             x: b.style.x, 
+             y: b.style.y,
+             width: '109',
+             height: "30"
+           }}
+        return [...arr, b, element]
+      }, []);
+
     const mainElementChilds = mainElement.childs[0].childs;
 
     removeProp(jasonettetemplate, "childs");
 
     const StringifiedJasonette = JSON.stringify(jasonettetemplate);
+
+  
+    console.log(" ")
+    console.log("Here is your json file : ")
+    console.log(" ")
+    console.log(StringifiedJasonette)
 
     fs.writeFileSync(OUTPUT_DIR + "/" + OUTPUT_FILE, StringifiedJasonette);
   });
