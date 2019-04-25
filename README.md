@@ -29,7 +29,7 @@ Use this file in the [Jasonette Quick Start](https://docs.jasonette.com/#quickst
 
 ## What it does ?
 
-For the moment the tool is just a prototype which will be improved for the future.
+For the moment the tool is just a POC which will be improved in the future.
 It takes a sketch exported svg file in input and output a json file in the jasonette format.
 
 ## Result

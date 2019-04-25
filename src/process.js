@@ -252,6 +252,11 @@ const processText = (node, parentAttrs = {}) => {
     style.font = attrs.fontFamily.split(", ")[0];
   }
 
+  if (node.childs[0] && node.childs[0].name == "tspan") {
+    style.y = node.childs[0].attrs.y
+    style.x = node.childs[0].attrs.x
+  }
+
   return {
     id: node.attrs.id,
     type: "label",

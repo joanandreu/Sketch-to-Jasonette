@@ -33,6 +33,15 @@ makeDir(TEMP_DIR);
 
 const countBack = (INPUT_FILE.match(/(\.\.)/g) || []).length;
 
+const containsObject = (id, list) => {
+  for (let i = 0; i < list.length; i++) {
+      if (list[i].id === id) {
+          return i;
+      }
+  }
+  return false;
+}
+
 const dirnameSplit = __dirname.split("/").slice(0, -1);
 
 const pathFile = dirnameSplit
@@ -92,6 +101,39 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
     // Add items inside section part
     jasonettetemplate["$jason"].body.sections = 
       [{ "items": jasonettetemplate["$jason"].body.sections }]
+    
+    let rr = [] 
+    
+    await jasonettetemplate["$jason"].body.sections[0].items.map(element => {
+      let width = parseInt(element.style.width) || 0
+      let height = parseInt(element.style.height) || 0
+      let x = parseInt(element.style.x)
+      let y = parseInt(element.style.y)
+
+      rr.push({id: element.id , width, height,x, y,  type: element.type, background: element.style.background})
+    })
+
+    rr.sort((a, b) => {
+      return (a.y + a.height) - (b.y + b.height);
+    });
+
+    for(let i = 0;i < rr.length - 1; i++) {
+      if (rr[i].type === "label" && rr[i+1].type === "space") {
+        rr[i].background = rr[i+1].background 
+        rr.splice(i+1, 1)
+      } 
+    }
+
+        
+    jasonettetemplate["$jason"].body.sections[0].items = 
+      await jasonettetemplate["$jason"].body.sections[0].items.filter(element => {
+        let test = containsObject(element.id, rr)
+          if (test || test === 0) {
+            element.style.background = rr[test].background
+            return true
+          }
+        return false
+      })
 
     const mainElementChilds = mainElement.childs[0].childs;
 
