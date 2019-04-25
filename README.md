@@ -32,6 +32,8 @@ Use this file in the [Jasonette Quick Start](https://docs.jasonette.com/#quickst
 For the moment the tool is just a POC which will be improved in the future.
 It takes a sketch exported svg file in input and output a json file in the jasonette format.
 
+![Screen](./assets/Screen.jpg)
+
 ## Result
 
 You can test your output file on https://jasonette.github.io/Jasonette-Web/demo/ipfs/
