@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="691px" viewBox="0 0 320 691" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Mobile</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="164" width="320" height="69"></rect>
+        <rect id="path-2" x="167" y="272" width="112" height="74"></rect>
+        <rect id="path-3" x="33" y="272" width="112" height="74"></rect>
+        <rect id="path-4" x="33" y="38" width="112" height="74"></rect>
+        <rect id="path-5" x="167" y="38" width="112" height="74"></rect>
+        <rect id="path-6" x="0" y="509" width="320" height="69"></rect>
+        <rect id="path-7" x="167" y="617" width="112" height="74"></rect>
+        <rect id="path-8" x="33" y="617" width="112" height="74"></rect>
+        <rect id="path-9" x="33" y="383" width="112" height="74"></rect>
+        <rect id="path-10" x="167" y="383" width="112" height="74"></rect>
+    </defs>
+    <g id="Page1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile">
+            <g id="Rectangle3">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="164.5" width="319" height="68"></rect>
+            </g>
+            <g id="Rectangle5">
+                <use fill="#405783" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <rect stroke="#979797" stroke-width="1" x="167.5" y="272.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle5_34">
+                <use fill="#80B674" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <rect stroke="#979797" stroke-width="1" x="33.5" y="272.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle5_35">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <rect stroke="#979797" stroke-width="1" x="33.5" y="38.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle5_36">
+                <use fill="#A05C5C" fill-rule="evenodd" xlink:href="#path-5"></use>
+                <rect stroke="#979797" stroke-width="1" x="167.5" y="38.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle3_37">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-6"></use>
+                <rect stroke="#979797" stroke-width="1" x="0.5" y="509.5" width="319" height="68"></rect>
+            </g>
+            <g id="Rectangle5_38">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-7"></use>
+                <rect stroke="#979797" stroke-width="1" x="167.5" y="617.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle5_39">
+                <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-8"></use>
+                <rect stroke="#979797" stroke-width="1" x="33.5" y="617.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle5_40">
+                <use fill="#A67B7B" fill-rule="evenodd" xlink:href="#path-9"></use>
+                <rect stroke="#979797" stroke-width="1" x="33.5" y="383.5" width="111" height="73"></rect>
+            </g>
+            <g id="Rectangle5_41">
+                <use fill="#000000" fill-rule="evenodd" xlink:href="#path-10"></use>
+                <rect stroke="#979797" stroke-width="1" x="167.5" y="383.5" width="111" height="73"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

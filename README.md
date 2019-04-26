@@ -1,6 +1,8 @@
-# Sketch to Jasonette
+![Screen](./assets/Screen.jpg)
 
-![Process](./assets/MainGoal.jpg)
+<p align="center">
+  <img src="./assets/MainGoal.jpg" />
+</p>
 
 Do you want to run your Sketch designs on mobile into native app ?  
 Using **Sketch To Jasonette** librairy will automate your prototyping phase.
@@ -32,19 +34,29 @@ Use this file in the [Jasonette Quick Start](https://docs.jasonette.com/#quickst
 For the moment the tool is just a POC which will be improved in the future.
 It takes a sketch exported svg file in input and output a json file in the jasonette format.
 
-![Screen](./assets/Screen.jpg)
-
 ## Result
 
 You can test your output file on https://jasonette.github.io/Jasonette-Web/demo/ipfs/
 
+**Turn this:**
+<p align="center">
+  <img width="300px" src="./assets/before.png" />
+</p>
+
+**Into this:**
+<p align="center">
+  <img width="300px" src="./assets/after.png" />
+</p>
+
 ## Issues
 
-- If you have an order issue please re-order the components into the svg file before running the command again :
+  If you have an **order issue** please re-order the components into the svg file before running the command again :
 
-![CorrectOrder](./assets/correct.png)
+<p align="center">
+  <img width="300px" src="./assets/correct.png" />
+</p>
 
-NOTE: This is **not** a finished tools ! It needs to be improved.
+**NOTE:** This is **not** a finished tools ! It needs to be improved.
 Feels free to add Issues and submit Pull Requests if you want to !
 
 I got inspired by the [sketch-to-react-native](https://github.com/nanohop/sketch-to-react-native) tool as a base to start.
