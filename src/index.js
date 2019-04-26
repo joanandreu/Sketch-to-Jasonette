@@ -6,7 +6,7 @@ const { prepData } = require("./input");
 const { propEq, filter } = require("ramda");
 const { processElement } = require("./process");
 const util = require("util");
-const pjson = require('../package.json');
+const pjson = require("../package.json");
 
 const jasonettetemplate = require("./utils/jasonette.template.json");
 
@@ -35,12 +35,12 @@ const countBack = (INPUT_FILE.match(/(\.\.)/g) || []).length;
 
 const containsObject = (id, list) => {
   for (let i = 0; i < list.length; i++) {
-      if (list[i].id === id) {
-          return i;
-      }
+    if (list[i].id === id) {
+      return i;
+    }
   }
   return false;
-}
+};
 
 const dirnameSplit = __dirname.split("/").slice(0, -1);
 
@@ -61,18 +61,23 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
   });
 
   svgson(preppedData, {}, async function(result) {
-
-    console.log(`                                                                                
+    console.log(
+      "\x1b[33m",
+      `                                                                                
     _____   _           _           _         _                  __                                 _     _           
-   |   __| | |_   ___| | |_   ___| | |_  ___ | |_   ___  ___  __|  | |___   ___   ___   ___   ___| | |_  | |_   ___   
+   |   __| | |_   ___  | |_   ___  | |_  ___ | |_   ___  ___  __|  |  ___   ___   ___   ___   ___  | |_  | |_   ___   
    |__   | | '_| | -_| |  _| |  _| |   | ___ |  _| | . | ___ |  |  | | .'| |_ -| | . | |   | | -_| |  _| |  _| | -_|  
-   |_____| |_,_| |___| |_| | |___| |_|_|     |_| | |___|     |_____| |__,| |___| |___| |_|_| |___| |_|   |_|   |___|  
-                                                                                    `)
+   |_____| |_,_| |___| |_|   |___| |_|_|     |_|   |___|     |_____| |__,| |___| |___| |_|_| |___| |_|   |_|   |___|  
+                                                                                    `
+    );
 
-    console.log("Version : ", pjson.version);
-    console.log("Your json file is in the output folder");
+    console.log("\x1b[0m", "Version : ", "\x1b[35m", pjson.version);
+    console.log("\x1b[32m", "Your json file is in the output folder");
 
-    console.log("Feel free to contribute to the project on Github: https://github.com/BREDFactory/Sketch-to-Jasonette");
+    console.log(
+      "\x1b[0m",
+      "Feel free to contribute to the project on Github: https://github.com/BREDFactory/Sketch-to-Jasonette"
+    );
 
     const nodes = processElement(result);
 
@@ -99,44 +104,56 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
       jasonettetemplate["$jason"].body.sections[0];
 
     // Add items inside section part
-    jasonettetemplate["$jason"].body.sections = 
-      [{ "items": jasonettetemplate["$jason"].body.sections }]
-    
-    let rr = [] 
+    jasonettetemplate["$jason"].body.sections = [
+      { items: jasonettetemplate["$jason"].body.sections }
+    ];
+
+    let rr = [];
 
     /**
      * Process the label tags
      */
-    
+
     await jasonettetemplate["$jason"].body.sections[0].items.map(element => {
-      let width = parseInt(element.style.width) || 0
-      let height = parseInt(element.style.height) || 0
-      let x = parseInt(element.style.x)
-      let y = parseInt(element.style.y)
+      let width = parseInt(element.style.width) || 0;
+      let height = parseInt(element.style.height) || 0;
+      let x = parseInt(element.style.x);
+      let y = parseInt(element.style.y);
 
-      rr.push({id: element.id , width, height,x, y,  type: element.type, background: element.style.background})
-    })
-
-    rr.sort((a, b) => {
-      return (a.y + a.height) - (b.y + b.height);
+      rr.push({
+        id: element.id,
+        width,
+        height,
+        x,
+        y,
+        type: element.type,
+        background: element.style.background
+      });
     });
 
-    for(let i = 0;i < rr.length - 1; i++) {
-      if (rr[i].type === "label" && rr[i+1].type === "space") {
-        rr[i].background = rr[i+1].background 
-        rr.splice(i+1, 1)
-      } 
+    rr.sort((a, b) => {
+      return a.y + a.height - (b.y + b.height);
+    });
+
+    for (let i = 0; i < rr.length - 1; i++) {
+      if (rr[i].type === "label" && rr[i + 1].type === "space") {
+        rr[i].background = rr[i + 1].background;
+        rr.splice(i + 1, 1);
+      }
     }
 
-    jasonettetemplate["$jason"].body.sections[0].items = 
-      await jasonettetemplate["$jason"].body.sections[0].items.filter(element => {
-        let test = containsObject(element.id, rr)
-          if (test || test === 0) {
-            element.style.background = rr[test].background
-            return true
-          }
-        return false
-      })
+    jasonettetemplate[
+      "$jason"
+    ].body.sections[0].items = await jasonettetemplate[
+      "$jason"
+    ].body.sections[0].items.filter(element => {
+      let test = containsObject(element.id, rr);
+      if (test || test === 0) {
+        element.style.background = rr[test].background;
+        return true;
+      }
+      return false;
+    });
 
     /**
      * Process the spaces
@@ -146,20 +163,53 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
       return parseInt(a.style.y) - parseInt(b.style.y);
     });
 
-    jasonettetemplate["$jason"].body.sections[0].items = 
-      jasonettetemplate["$jason"].body.sections[0].items.reduce((arr, b) => {
-        let element = { 
-          id: 'empty-space',
-          type: 'space',
-          style:
-           { background: 'transparent',
-             x: b.style.x, 
-             y: b.style.y,
-             width: '109',
-             height: "30"
-           }}
-        return [...arr, b, element]
-      }, []);
+    jasonettetemplate["$jason"].body.sections[0].items = jasonettetemplate[
+      "$jason"
+    ].body.sections[0].items.reduce((arr, b) => {
+      let element = {
+        id: "empty-space",
+        type: "space",
+        style: {
+          background: "transparent",
+          x: b.style.x,
+          y: b.style.y,
+          width: "109",
+          height: "30"
+        }
+      };
+      return [...arr, b, element];
+    }, []);
+
+    /**
+     * Process horizontal sections
+     */
+
+    const length_array = jasonettetemplate["$jason"].body.sections[0].items.length
+
+    let vertical_result = []
+
+    for (let i = 1; i < length_array; i++) {
+      if (parseInt(jasonettetemplate["$jason"].body.sections[0].items[i - 1].style.x) < parseInt(jasonettetemplate["$jason"].body.sections[0].items[i].style.x)) {
+        vertical_result.push(jasonettetemplate["$jason"].body.sections[0].items[i].style.y)
+      }
+    }
+
+    let group = []
+
+    for (let i = 0; i < vertical_result.length; i++) {
+      let intermediate = []
+      for (let j = 0; j < length_array; j++) {
+        if (jasonettetemplate["$jason"].body.sections[0].items[j].style.y === vertical_result[i]) {
+          intermediate.push(j)
+        }
+      }
+      group.push(intermediate)
+    }
+
+    for (let i = group.length - 1; i >= 0; i--) {
+      let replacement = { type: "horizontal", components: jasonettetemplate["$jason"].body.sections[0].items.slice(group[i][0], group[i][group[i].length - 1]) }
+      jasonettetemplate["$jason"].body.sections[0].items.splice(group[i][0], group[i].length - 1, replacement)
+    }
 
     const mainElementChilds = mainElement.childs[0].childs;
 
@@ -167,11 +217,10 @@ fs.readFile(pathToFile, "utf-8", (error, data) => {
 
     const StringifiedJasonette = JSON.stringify(jasonettetemplate);
 
-  
-    console.log(" ")
-    console.log("Here is your json file : ")
-    console.log(" ")
-    console.log(StringifiedJasonette)
+    console.log(" ");
+    console.log("Here is your json file : ");
+    console.log(" ");
+    console.log(StringifiedJasonette);
 
     fs.writeFileSync(OUTPUT_DIR + "/" + OUTPUT_FILE, StringifiedJasonette);
   });
